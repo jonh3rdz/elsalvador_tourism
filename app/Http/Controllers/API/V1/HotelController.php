@@ -21,6 +21,11 @@ class HotelController extends Controller
         return new HotelCollection(Hotel::all());
     }
 
+    public function search($field, $query)
+    {
+        return new HotelCollection(Hotel::where($field, 'LIKE', "%$query%")->paginate(10));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
