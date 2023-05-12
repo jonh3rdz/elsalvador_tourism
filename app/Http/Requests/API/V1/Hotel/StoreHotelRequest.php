@@ -23,7 +23,7 @@ class StoreHotelRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'description' => 'required',
             'location' => 'required|max:255',
             'image_url' => 'required|max:255',
             'price' => 'required|numeric',
