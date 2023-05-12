@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\V1\DestinationController;
+use App\Http\Controllers\API\V1\HotelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,16 +22,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'v1'],
 function(){
+    //routes destinations
     Route::get('destinations', [DestinationController::class,'index']);
     Route::post('destinations', [DestinationController::class,'store']);
     Route::get('destinations/{idDestination}', [DestinationController::class,'show']);
     Route::put('destinations/{idDestination}', [DestinationController::class,'update']);
     Route::delete('destinations/{idDestination}', [DestinationController::class,'destroy']);
-});
 
-// php artisan make:model API/V1/Country -mfs
-// php artisan make:controller API/V1/CountryController --api
-// php artisan make:resource API/V1/Country/CountryResource
-// php artisan make:resource API/V1/Country/CountryCollection
-// php artisan make:request API/V1/Country/StoreCountryRequest
-// php artisan make:request API/V1/Country/UpdateCountryRequest
+    //routes hotels
+    Route::get('hotels', [HotelController::class,'index']);
+    Route::post('hotels', [HotelController::class,'store']);
+    Route::get('hotels/{idHotel}', [HotelController::class,'show']);
+    Route::put('hotels/{idHotel}', [HotelController::class,'update']);
+    Route::delete('hotels/{idHotel}', [HotelController::class,'destroy']);
+});
