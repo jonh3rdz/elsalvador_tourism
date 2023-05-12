@@ -31,6 +31,7 @@ function(){
 
     //routes hotels
     Route::get('hotels', [HotelController::class,'index']);
+    Route::get('search/hotels/{field}/{query}', [HotelController::class,'search']);
     Route::post('hotels', [HotelController::class,'store']);
     Route::get('hotels/{idHotel}', [HotelController::class,'show']);
     Route::put('hotels/{idHotel}', [HotelController::class,'update']);
