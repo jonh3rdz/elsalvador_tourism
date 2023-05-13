@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\API\V1\ActivityController;
 use App\Http\Controllers\API\V1\DestinationController;
 use App\Http\Controllers\API\V1\HotelController;
+use App\Http\Controllers\API\V1\ReservationController;
 use App\Http\Controllers\API\V1\RestaurantController;
+use App\Http\Controllers\API\V1\ReviewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +48,28 @@ function(){
     Route::get('restaurants/{idRestaurant}', [RestaurantController::class,'show']);
     Route::put('restaurants/{idRestaurant}', [RestaurantController::class,'update']);
     Route::delete('restaurants/{idRestaurant}', [RestaurantController::class,'destroy']);
+
+    //routes activities
+    Route::get('activities', [ActivityController::class,'index']);
+    Route::get('search/activities/{field}/{query}', [ActivityController::class,'search']);
+    Route::post('activities', [ActivityController::class,'store']);
+    Route::get('activities/{idActivity}', [ActivityController::class,'show']);
+    Route::put('activities/{idActivity}', [ActivityController::class,'update']);
+    Route::delete('activities/{idActivity}', [ActivityController::class,'destroy']);
+
+    //routes reservations
+    Route::get('reservations', [ReservationController::class,'index']);
+    Route::get('search/reservations/{field}/{query}', [ReservationController::class,'search']);
+    Route::post('reservations', [ReservationController::class,'store']);
+    Route::get('reservations/{idReservation}', [ReservationController::class,'show']);
+    Route::put('reservations/{idReservation}', [ReservationController::class,'update']);
+    Route::delete('reservations/{idReservation}', [ReservationController::class,'destroy']);
+
+    //routes reviews
+    Route::get('reviews', [ReviewController::class,'index']);
+    Route::get('search/reviews/{field}/{query}', [ReviewController::class,'search']);
+    Route::post('reviews', [ReviewController::class,'store']);
+    Route::get('reviews/{idReview}', [ReviewController::class,'show']);
+    Route::put('reviews/{idReview}', [ReviewController::class,'update']);
+    Route::delete('reviews/{idReview}', [ReviewController::class,'destroy']);
 });
