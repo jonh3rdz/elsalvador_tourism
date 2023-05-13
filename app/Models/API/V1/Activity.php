@@ -24,6 +24,8 @@ class Activity extends Model
         'destination_id'
     ];
 
+    public $timestamps = false;
+
     protected $guarded = ['id'];
 
     protected $hidden = [

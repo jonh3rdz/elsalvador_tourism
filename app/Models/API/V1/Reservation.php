@@ -21,6 +21,8 @@ class Reservation extends Model
         'activity_id'
     ];
 
+    public $timestamps = false;
+    
     protected $guarded = ['id'];
 
     protected $hidden = [
