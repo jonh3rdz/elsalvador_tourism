@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\V1\DestinationController;
 use App\Http\Controllers\API\V1\HotelController;
+use App\Http\Controllers\API\V1\RestaurantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,4 +37,12 @@ function(){
     Route::get('hotels/{idHotel}', [HotelController::class,'show']);
     Route::put('hotels/{idHotel}', [HotelController::class,'update']);
     Route::delete('hotels/{idHotel}', [HotelController::class,'destroy']);
+
+    //routes resturants
+    Route::get('restaurants', [RestaurantController::class,'index']);
+    Route::get('search/restaurants/{field}/{query}', [RestaurantController::class,'search']);
+    Route::post('restaurants', [RestaurantController::class,'store']);
+    Route::get('restaurants/{idRestaurant}', [RestaurantController::class,'show']);
+    Route::put('restaurants/{idRestaurant}', [RestaurantController::class,'update']);
+    Route::delete('restaurants/{idRestaurant}', [RestaurantController::class,'destroy']);
 });
