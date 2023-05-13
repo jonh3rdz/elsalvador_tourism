@@ -25,7 +25,7 @@ class UpdateReservationRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:255',
-            'destination_id' => 'required|exists:destinations,id',
+            'destination_id' => 'nullable|exists:destinations,id',
             'hotel_id' => 'nullable|exists:hotels,id',
             'restaurant_id' => 'nullable|exists:restaurants,id',
             'activity_id' => 'nullable|exists:activities,id',

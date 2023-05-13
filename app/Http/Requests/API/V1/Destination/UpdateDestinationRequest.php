@@ -15,9 +15,9 @@ class UpdateDestinationRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
-            'location' => 'required|max:255',
-            'image_url' => 'required|max:255',
+            'description' => 'nullable|max:255',
+            'location' => 'nullable|max:255',
+            'image_url' => 'nullable|max:255',
         ];
     }
 

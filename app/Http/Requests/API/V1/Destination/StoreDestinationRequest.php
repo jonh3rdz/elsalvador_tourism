@@ -15,20 +15,14 @@ class StoreDestinationRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'description' => 'required|max:255',
-            'location' => 'required|max:255',
-            'image_url' => 'required|max:255',
+            'description' => 'nullable|max:255',
+            'location' => 'nullable|max:255',
+            'image_url' => 'nullable|max:255',
         ];
     }
 
     public function messages()
     {
-        // return [
-        //     'name.required'    => 'El nombre es requerido.',
-        //     'description.required'    => 'El nombre es requerido.',
-        //     'location.required'    => 'El nombre es requerido.',
-        //     'image_url.required'    => 'El nombre es requerido.',
-        // ];
         return [
             'required' => 'El campo :attribute es obligatorio.',
             'max' => 'El campo :attribute no debe tener más de :max caracteres.',

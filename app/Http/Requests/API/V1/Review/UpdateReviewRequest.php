@@ -24,7 +24,7 @@ class UpdateReviewRequest extends FormRequest
         return [
             'comment' => 'required',
             'rating' => 'required|integer|min:1|max:5',
-            'destination_id' => 'required|exists:destinations,id',
+            'destination_id' => 'nullable|exists:destinations,id',
             'hotel_id' => 'nullable|exists:hotels,id',
             'restaurant_id' => 'nullable|exists:restaurants,id',
             'activity_id' => 'nullable|exists:activities,id',

@@ -25,9 +25,9 @@ class StoreRestaurantRequest extends FormRequest
             'name' => 'required|max:255',
             'description' => 'required',
             'location' => 'required|max:255',
-            'image_url' => 'required|max:255',
-            'price' => 'required|numeric',
-            'opening_hours' => 'required|max:255',
+            'image_url' => 'nullable|max:255',
+            'price' => 'nullable|numeric',
+            'opening_hours' => 'nullable|max:255',
             'destination_id' => 'required|exists:destinations,id'
         ];
     }
