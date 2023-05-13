@@ -12,8 +12,19 @@ class ActivityCollection extends ResourceCollection
      *
      * @return array<int|string, mixed>
      */
-    public function toArray(Request $request): array
-    {
-        return parent::toArray($request);
-    }
+    public function toArray($request)
+{
+    return [
+        'data' => ActivityResource::collection($this->collection),
+        'meta' => [
+            'Group' => '1',
+            'Authors' => [
+                'Diego',
+                'Alessandro',
+                'Carolina'
+            ],
+        ],
+        'type' => 'Activities'
+    ];
+}
 }

@@ -12,8 +12,19 @@ class ReviewCollection extends ResourceCollection
      *
      * @return array<int|string, mixed>
      */
-    public function toArray(Request $request): array
+    public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'data' => ReviewResource::collection($this->collection),
+            'meta' => [
+                'Group' => '1',
+                'Authors' => [
+                    'Diego',
+                    'Alessandro',
+                    'Carolina'
+                ],
+            ],
+            'type' => 'Reviews'
+        ];
     }
 }
