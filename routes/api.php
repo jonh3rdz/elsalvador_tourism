@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\V1\ActivityController;
-use App\Http\Controllers\API\V1\DestinationController;
+use App\Http\Controllers\API\V1\DestinationController as DestinationV1;
+use App\Http\Controllers\API\V2\DestinationController as DestinationV2;
 use App\Http\Controllers\API\V1\HotelController;
 use App\Http\Controllers\API\V1\ReservationController;
 use App\Http\Controllers\API\V1\RestaurantController;
@@ -27,11 +28,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix'=>'v1'],
 function(){
     //routes destinations
-    Route::get('destinations', [DestinationController::class,'index']);
-    Route::post('destinations', [DestinationController::class,'store']);
-    Route::get('destinations/{idDestination}', [DestinationController::class,'show']);
-    Route::put('destinations/{idDestination}', [DestinationController::class,'update']);
-    Route::delete('destinations/{idDestination}', [DestinationController::class,'destroy']);
+    Route::get('destinations', [DestinationV1::class,'index']);
+    Route::post('destinations', [DestinationV1::class,'store']);
+    Route::get('destinations/{idDestination}', [DestinationV1::class,'show']);
+    Route::put('destinations/{idDestination}', [DestinationV1::class,'update']);
+    Route::delete('destinations/{idDestination}', [DestinationV1::class,'destroy']);
 
     //routes hotels
     Route::get('hotels', [HotelController::class,'index']);
@@ -72,4 +73,15 @@ function(){
     Route::get('reviews/{idReview}', [ReviewController::class,'show']);
     Route::put('reviews/{idReview}', [ReviewController::class,'update']);
     Route::delete('reviews/{idReview}', [ReviewController::class,'destroy']);
+});
+
+Route::group(['prefix'=>'v2'],
+function(){
+    //routes destinations
+    Route::get('destinations', [DestinationV2::class,'index']);
+    Route::get('search/destinations/{field}/{query}', [DestinationV2::class,'search']);
+    Route::post('destinations', [DestinationV2::class,'store']);
+    Route::get('destinations/{idDestination}', [DestinationV2::class,'show']);
+    Route::put('destinations/{idDestination}', [DestinationV2::class,'update']);
+    Route::delete('destinations/{idDestination}', [DestinationV2::class,'delete']);
 });
